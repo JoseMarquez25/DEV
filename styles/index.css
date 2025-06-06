@@ -1,0 +1,407 @@
+body {
+  background-image: url("../img/bg.png");
+  background-size: cover; /* Cubre toda la pantalla */
+  background-position: center; /* Centrada */
+  background-repeat: no-repeat; /* Sin repetirse */
+  background-attachment: fixed; /* Fija al hacer scroll */
+  height: 100vh;
+}
+
+/* Filtro oscuro */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Ajusta el valor aquí: 0.0 (transparente) a 1.0 (negro total) */
+  z-index: -1;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* para que quede por encima de otros elementos */
+}
+
+nav {
+  background-color: rgb(20, 20, 20);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  padding: 0 40px; /* Espacio horizontal interno */
+  border-radius: 25px; /* Semicírculo si height es 50px */
+  width: fit-content; /* o un ancho fijo si prefieres */
+  margin: 0% 0%; /* centra horizontalmente */
+  box-shadow: 3px 3px 4px rgba(0, 255, 234, 0.7); /* Para mejorar la visibilidad */
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 5px;
+  padding: 8px;
+}
+
+nav a:hover {
+  border-radius: 1%;
+  color: rgb(0, 195, 255);
+  transform: scale(1.15);
+  margin: 10px;
+}
+
+#logonav {
+  width: 100px;
+  height: 55px;
+  margin-left: 10px;
+  margin-right: 0%;
+}
+
+.switch-container {
+  position: relative;
+  right: 1rem;
+}
+
+/* Esconder el checkbox */
+.switch-container input {
+  display: none;
+}
+
+/* Estilo visual del switch */
+.switch {
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin-left: 40px;
+  background-color: #ccc;
+  border-radius: 25px;
+  position: relative;
+  cursor: pointer;
+}
+
+.switch:hover {
+  box-shadow: white;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: white;
+  top: 2px;
+  left: 2px;
+  transition: 0.3s;
+}
+
+/* Al activar el checkbox, aplicar tema oscuro y mover el círculo */
+#toggle-theme:checked + .switch {
+  background-color: #333;
+}
+
+#toggle-theme:checked + .switch::after {
+  transform: translateX(25px);
+}
+
+/* Tema oscuro aplicado al body */
+#toggle-theme:checked ~ body {
+  background-color: #111;
+  color: #fff;
+}
+
+#img1 {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+
+
+/* Imagen base */
+#img1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 0;
+  filter: opacity(0.8);
+  padding: 10px;
+  border-radius: 25px;
+  margin-top: 5px;
+}
+
+/* Texto encima de todo */
+.contenedor-img {
+  position: relative;
+  display: inline-block;
+}
+
+.texto-sobre-imagen {
+  position: absolute;
+  top: 25%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta exactamente al centro */
+  color: white;
+  font-size: 5rem;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 6px 10px 5px rgba(0, 0, 0, 0.7); /* Para mejorar la visibilidad */
+}
+
+.texto-sobre-imagen2 {
+  color: white;
+  background-color: rgba(0,0,0,0.2);
+  position: absolute;
+  top: 64%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-align: center;
+  z-index: 2; /* Asegura que esté por encima */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Opcional pero mejora visibilidad */
+}
+
+.texto-sobre-imagen2:hover {
+  color: rgb(0, 195, 255);
+}
+
+
+.contenedor-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.texto-sobre-imagen,
+.contenedor-img button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  z-index: 2;
+}
+
+.contenedor-img button {
+  bottom: 15%;
+  padding: 8px 16px;
+  background-color: rgba(0,0,0,0.7);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1.1rem;
+}
+
+#ei1 {
+  text-decoration: none;
+  color: white;
+}
+
+.contenedor-img button:hover {
+  color: rgb(0, 195, 255);
+  background-color: rgba(1, 0, 19, 0.9);
+}
+
+.contenedor-img button:hover::after {
+  content: ' ===>>';
+  color: rgb(0, 195, 255);
+  font-weight: normal;
+}
+
+/* opcional: oscurecer la imagen con un pseudo-elemento */
+.contenedor-img::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.3); /* oscurece la imagen para mejor legibilidad */
+  z-index: 1;
+}
+
+#cont1 {
+  display: grid;
+  grid-template-columns: 35% 65%;
+}
+
+#gif1 {
+  width: 500px;
+  margin-left: auto;
+  padding-left: 100px;
+}
+
+#gif2 {
+  width: 400px;
+}
+
+#titulo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+#titulo h1 {
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 6rem;
+  color: white;
+  text-shadow: 0px 8px 5px rgba(0, 0, 0, 0.5);
+  animation: typing 5s steps(25) 1s infinite alternate,
+    blink 4s step-end infinite;
+}
+
+h5 {
+  text-align: center;
+  justify-content: center;
+  margin-top: 40px;
+  font-size: 3em;
+  color: #fff;
+  text-shadow: 0px 8px 5px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 25ch;
+  } /* '22' es la cantidad de caracteres del texto */
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+#parrafo1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+#parrafo1 p {
+  color: white;
+  font-size: 2em;
+  font-style: italic;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 30% 36.5% 30%;
+  align-items: center;
+  width: 100%;
+  gap: 1.5rem;
+  padding: 1rem;
+  margin-top: 100px;
+}
+
+.card {
+  background-color: transparent; /* Fondo transparente por defecto */
+  padding: 1rem;
+  border-radius: 8px;
+  height: 300px; /* Puedes ajustar la altura */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px dashed rgba(0, 0, 0, 0.2); /* Opcional: para ver los bordes */
+}
+
+/* Ejemplo de clases para configurar el fondo */
+.card1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(20, 20, 20, 0.8);
+  color: white;
+  height: 250px;
+}
+
+#cuenta-regresiva {
+  margin-top: 20px;
+  font-size: 2rem;
+  color: rgb(0, 195, 255);
+  font-weight: bold;
+}
+
+#btnc1 {
+  margin-top: 25px;
+  background-color: rgb(199, 199, 199);
+  color: #000000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: 1px;
+}
+
+#btnc1:hover {
+  background-color: #003366;
+  color: white;
+  transform: scale(1.3);
+  animation: flotar 150ms ease-in-out infinite;
+}
+
+@keyframes flotar {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateY(-4px); }
+  100% { transform: translateZ(4px); }
+}
+
+.card2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: rgba(27, 27, 27, 0.8);
+  color: white;
+  height: 400px;
+}
+
+.card2 li {
+  margin-left: 10%;
+  text-align: start;
+  margin-top: 1.1rem;
+}
+
+#tc1 {
+  color: rgb(255, 255, 64);
+}
+
+#tc2 {
+  color: rgb(255, 255, 64);
+}
+
+.card3 {
+  background-color: rgba(12, 56, 151, 0.8);
+  color: white;
+  align-items: center;
+  height: 250px;
+}
+
