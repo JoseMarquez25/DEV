@@ -1,0 +1,15 @@
+{
+  "name": "devchallenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "predeploy": "echo Skipping build",
+    "deploy": "gh-pages -d site"
+  },
+  "dependencies": {
+    "gh-pages": "^6.3.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
